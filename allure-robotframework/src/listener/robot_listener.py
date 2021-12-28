@@ -14,10 +14,10 @@ DEFAULT_OUTPUT_PATH = os.path.join('output', 'allure')
 class allure_robotframework(object):
     ROBOT_LISTENER_API_VERSION = 2
 
-    def __init__(self, logger_path=DEFAULT_OUTPUT_PATH):
+    def __init__(self, logger_path=DEFAULT_OUTPUT_PATH, clean=False):
         self.messages = Messages()
 
-        self.logger = AllureFileLogger(logger_path)
+        self.logger = AllureFileLogger(logger_path=logger_path, clean=clean)
         self.lifecycle = AllureLifecycle()
         self.listener = AllureListener(self.lifecycle)
 
